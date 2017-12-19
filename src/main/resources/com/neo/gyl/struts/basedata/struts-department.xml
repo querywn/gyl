@@ -5,7 +5,7 @@
 <struts>
 	<package name="department" namespace="/" extends="struts-default">
 		<action name="departmentAction_*" method="{1}" class="departmentAction">
-			<result name="result">/WEB-INF/jsp/gyl/basedata/departnment/list.jsp</result>
+			<result name="listAction">/WEB-INF/jsp/gyl/basedata/departnment/list.jsp</result>
 		</action>
 	</package>
 </struts>	
