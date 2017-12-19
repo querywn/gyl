@@ -7,6 +7,5 @@
   	<action name="departmentAction_*" method="{1}" class="departmentAction">
   		<result name="listAction">index.jsp</result>
   	</action>
-  	
   </package>
 </struts>	
