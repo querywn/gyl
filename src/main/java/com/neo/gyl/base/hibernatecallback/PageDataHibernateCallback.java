@@ -37,6 +37,7 @@ public class PageDataHibernateCallback<T> implements HibernateCallback<List<T>> 
 		}
 		
 		query.setFirstResult((baseQuery.getCurrentPage() - 1) * baseQuery.getPageSize());
+		System.out.println("aaa");
 		query.setMaxResults(baseQuery.getPageSize());
 		
 		return query.list();
