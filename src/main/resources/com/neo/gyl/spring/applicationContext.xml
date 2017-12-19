@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/aop 
+                           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+                           http://www.springframework.org/schema/tx 
+                           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 数据源、SessionFactory、注解解析器 -->
+	<!-- 
+		dao持有Hibernate引用。
+		使用@Component @Repository @Service @Controller管理bean 
+		使用@Transaction(read-only=false,propagation=Propagation.REQUIRED,isolation=Isolation.DEFAULT)管理事务
+	-->
+	<import resource="applicationContext-datasource.xml"/>
+	<import resource="applicationContext-sessionfactory-merge.xml"/>
+	<import resource="applicationContext-hibernate-tx-anno.xml"/>
+	
+
+</beans>
