@@ -22,6 +22,10 @@ public class DepartmentAction extends BaseAction<Department>{
 	private DepartmentQuery baseQuery = new DepartmentQuery();
 	
 	public String showPageResult() throws Exception {
+		if(this.getCurrentPage() == null){
+			this.setCurrentPage(1);
+		}
+		baseQuery.setCurrentPage(this.getCurrentPage());
 		PageResult<Department> pageResult = this.departmentService.getPageResult(baseQuery);
 		ActionContext.getContext().put("pageResult", pageResult);
 		return LISTACTION;
