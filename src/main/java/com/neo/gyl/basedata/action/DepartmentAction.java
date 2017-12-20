@@ -2,6 +2,7 @@ package com.neo.gyl.basedata.action;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,9 @@ public class DepartmentAction extends BaseAction<Department>{
 	
 	private DepartmentQuery baseQuery = new DepartmentQuery();
 	
+	/**
+	 * 分页显示部门
+	 */
 	public String showPageResult() throws Exception {
 		if(this.getCurrentPage() == null){
 			this.setCurrentPage(1);
@@ -32,11 +36,28 @@ public class DepartmentAction extends BaseAction<Department>{
 		return LISTACTION;
 	}
 	
-	
+	/**
+	 * checkbox多行删除
+	 */
 	public String deleteDepartments() throws Exception {
 		if(StringUtils.isNotBlank(this.getCheckedStr())){
 			this.departmentService.deleteEntriesByIds(this.getCheckedStr().split("\\,"));
 		}
 		return ACTION2ACTION;
 	}
+	
+	/**
+	 * 部门添加
+	 */
+	public String saveUI() throws Exception {
+		return SAVEUI;
+	}
+	public String save() throws Exception {
+		Department department = new Department();
+		BeanUtils.copyProperties(department, this.getModel());
+		this.departmentService.saveEntry(department);
+		return ACTION2ACTION;
+	}
+	
+	
 }

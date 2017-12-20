@@ -52,7 +52,7 @@
     </tr>
 </table>
 <div>
-    <a href="departmentAction_addUI.action"><img src="${pageContext.request.contextPath}/images/createNew.png" /></a>
+    <a href="departmentAction_saveUI.action"><img src="${pageContext.request.contextPath}/images/createNew.png" /></a>
 </div>
 </body>
 </html>

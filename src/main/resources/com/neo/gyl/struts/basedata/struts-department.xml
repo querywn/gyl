@@ -7,6 +7,8 @@
 		<action name="departmentAction_*" method="{1}" class="departmentAction">
 			<result name="listAction">/WEB-INF/jsp/gyl/basedata/departnment/list.jsp</result>
 			<result name="action2action" type="redirectAction">departmentAction_showPageResult.action</result>
+			<result name="saveUI">/WEB-INF/jsp/gyl/basedata/departnment/save.jsp</result>
+			<result name="updateUI">/WEB-INF/jsp/gyl/basedata/departnment/update.jsp</result>
 		</action>
 	</package>
 </struts>	
