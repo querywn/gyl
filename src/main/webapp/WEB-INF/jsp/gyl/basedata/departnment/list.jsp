@@ -18,17 +18,17 @@
         <td class="right">
         	<table cellspacing="0" cellpadding="0" id="maintain-top" align="center"  width="900" style=" overflow:auto; height:40px;">
                 <tr class="one" height="20">
-                	<td class="btn" align="left"><input type="button" value="删除"/></td>
+                	<td class="btn" align="left"><input type="button" value="删除" id="delBtn"/></td>
                 </tr>
                 <tr class="one" height="20">
-                	<td><input type="checkbox"/></td>
+                	<td><input type="checkbox" id="controlCheckbox"/></td>
                     <td width="300">部门名称</td>
                     <td width="300">描述</td>
 					<td width="300">操作</td>
                 </tr>
                	<s:iterator value="#pageResult.rows">
 	                <tr align="center">
-	                   <td><input type="checkbox" name="dids" value="${did}"/></td>
+	                   <td><input type="checkbox" name="did" value="${did}"/></td>
 	                   <td><s:property value="name"/></td>
 	                   <td><s:property value="description"/></td>
 					   <td class="btn" align="center">
