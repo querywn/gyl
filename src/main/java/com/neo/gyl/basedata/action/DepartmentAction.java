@@ -59,5 +59,28 @@ public class DepartmentAction extends BaseAction<Department>{
 		return ACTION2ACTION;
 	}
 	
+	/**
+	 * 部门更新
+	 */
+	public String updateUI() throws Exception {
+		Department department = this.departmentService.getEntryById(this.getModel().getDid());
+		ActionContext.getContext().getValueStack().push(department);
+		return UPDATEUI;
+	}
+	
+	public String update() throws Exception {
+		Department department = new Department();
+		BeanUtils.copyProperties(department, this.getModel());
+		this.departmentService.updateEntry(department);
+		return ACTION2ACTION;
+	}
+	
+	/**
+	 * 部门删除
+	 */
+	public String delete() throws Exception {
+		this.departmentService.deleteEntryById(this.getModel().getDid());
+		return ACTION2ACTION;
+	}
 	
 }

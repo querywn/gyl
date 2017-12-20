@@ -8,11 +8,34 @@
 	$().ready(function(){
 		$("body").data("url","departmentAction_showPageResult.action");
 		GylUtils.basedata.initEvent();
+		//多行删除
 		GylUtils.basedata.delObjs.delFunction({
 			delBtn:'delBtn',
 			controlCheckbox:'controlCheckbox',
 			itemsName:'did',
 			url:'departmentAction_deleteDepartments.action'
+		});
+		
+		//单行更新
+		$("input[value='修改']").unbind("click");
+		$("input[value='修改']").bind("click",function(){
+			GylUtils.basedata.updateObj.updateFunction({
+				url:'departmentAction_updateUI.action',
+				idName:'did',
+				idValue:$(this).parent().siblings("td").children("input:eq(0)").val()
+			});
+		});
+		
+		//单行删除
+		$("input[value='删除']").unbind("click");
+		$("input[value='删除']").bind("click",function(){
+			if(window.confirm("确定删除吗？")){
+				GylUtils.basedata.updateObj.updateFunction({
+					url:'departmentAction_delete.action',
+					idName:'did',
+					idValue:$(this).parent().siblings("td").children("input:eq(0)").val()
+				});
+			}
 		});
 	});
 </script>

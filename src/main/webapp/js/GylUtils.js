@@ -8,6 +8,11 @@ var GylUtils = {
 				$.delObjs(config);
 			}
 		},
+		updateObj:{
+			updateFunction:function(config){
+				$.updateObj(config);
+			}
+		},
 		disPage:{
 			linkNextPage:function(){
 				var currentPage = $(this).attr("param");
