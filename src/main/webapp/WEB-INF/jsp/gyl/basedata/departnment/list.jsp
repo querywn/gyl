@@ -8,6 +8,12 @@
 	$().ready(function(){
 		$("body").data("url","departmentAction_showPageResult.action");
 		GylUtils.basedata.initEvent();
+		GylUtils.basedata.delObjs.delFunction({
+			delBtn:'delBtn',
+			controlCheckbox:'controlCheckbox',
+			itemsName:'did',
+			url:'departmentAction_deleteDepartments.action'
+		});
 	});
 </script>
 </head>

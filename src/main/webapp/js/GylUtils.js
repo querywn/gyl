@@ -3,6 +3,11 @@ var GylUtils = {
 	 * 基础模块
 	 */
 	basedata:{
+		delObjs:{
+			delFunction:function(config){
+				$.delObjs(config);
+			}
+		},
 		disPage:{
 			linkNextPage:function(){
 				var currentPage = $(this).attr("param");

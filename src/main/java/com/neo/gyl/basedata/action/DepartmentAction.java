@@ -2,6 +2,7 @@ package com.neo.gyl.basedata.action;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -31,4 +32,20 @@ public class DepartmentAction extends BaseAction<Department>{
 		return LISTACTION;
 	}
 	
+	private String checkedStr;
+
+	public String getCheckedStr() {
+		return checkedStr;
+	}
+
+	public void setCheckedStr(String checkedStr) {
+		this.checkedStr = checkedStr;
+	}
+	
+	public String deleteDepartments() throws Exception {
+		if(StringUtils.isNotBlank(this.checkedStr)){
+			this.departmentService.deleteEntriesByIds(this.checkedStr.split("\\,"));
+		}
+		return ACTION2ACTION;
+	}
 }
