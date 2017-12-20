@@ -57,4 +57,17 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	public HttpSession getSession(){
 		return ServletActionContext.getRequest().getSession();
 	}
+	
+	/**
+	 * 多行删除参数
+	 */
+	private String checkedStr;
+
+	public String getCheckedStr() {
+		return checkedStr;
+	}
+
+	public void setCheckedStr(String checkedStr) {
+		this.checkedStr = checkedStr;
+	}
 }

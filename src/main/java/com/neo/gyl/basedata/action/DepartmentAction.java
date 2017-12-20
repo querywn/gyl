@@ -32,15 +32,6 @@ public class DepartmentAction extends BaseAction<Department>{
 		return LISTACTION;
 	}
 	
-	private String checkedStr;
-
-	public String getCheckedStr() {
-		return checkedStr;
-	}
-
-	public void setCheckedStr(String checkedStr) {
-		this.checkedStr = checkedStr;
-	}
 	
 	public String deleteDepartments() throws Exception {
 		if(StringUtils.isNotBlank(this.checkedStr)){
