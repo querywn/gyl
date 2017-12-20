@@ -34,8 +34,8 @@ public class DepartmentAction extends BaseAction<Department>{
 	
 	
 	public String deleteDepartments() throws Exception {
-		if(StringUtils.isNotBlank(this.checkedStr)){
-			this.departmentService.deleteEntriesByIds(this.checkedStr.split("\\,"));
+		if(StringUtils.isNotBlank(this.getCheckedStr())){
+			this.departmentService.deleteEntriesByIds(this.getCheckedStr().split("\\,"));
 		}
 		return ACTION2ACTION;
 	}
