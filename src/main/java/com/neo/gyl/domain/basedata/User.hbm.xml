@@ -13,5 +13,9 @@
         <property name="email" length="20"/>
         <property name="phone" length="100"/>
         <many-to-one name="department" column="did" class="com.neo.gyl.domain.basedata.Department"></many-to-one>
+   		<set name="roles" table="user_role">
+   			<key column="uid"></key>
+   			<many-to-many class="com.neo.gyl.domain.privilege.Role" column="rid"></many-to-many>
+   		</set>
     </class>  
 </hibernate-mapping>  
