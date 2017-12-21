@@ -8,5 +8,10 @@
 	<constant name="struts.configuration.xml.reload" value="true" />
 	<!--使struts2标签以简单格式显示 -->
 	<constant name="struts.ui.theme" value="simple" />
+	
+	<!-- 基础数据 -->
 	<include file="com/neo/gyl/struts/basedata/struts-department.xml"></include>
+	<include file="com/neo/gyl/struts/basedata/struts-user.xml"></include>
+	
+	
 </struts>	
