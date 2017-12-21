@@ -11,5 +11,9 @@
         </id>  
         <property name="name" length="20"/>
         <property name="description" length="100"/>
+        <set name="users" inverse="true">
+        	<key column="did"></key>
+        	<one-to-many class="com.neo.gyl.domain.basedata.User"/>
+        </set>
     </class>  
 </hibernate-mapping>  
