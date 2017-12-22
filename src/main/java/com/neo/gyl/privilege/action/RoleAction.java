@@ -46,4 +46,10 @@ public class RoleAction extends BaseAction<Role>{
 		this.roleService.updateEntry(role);
 		return SUCCESS;
 	}
+	
+	public String showRoles() throws Exception {
+		Collection<Role> roles = this.roleService.getAllEntries();
+		ActionContext.getContext().put("roles", roles);
+		return LISTACTION;
+	}
 }

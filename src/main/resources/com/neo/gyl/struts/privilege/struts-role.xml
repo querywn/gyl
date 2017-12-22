@@ -8,5 +8,11 @@
 			<result type="json"></result>
 		</action>
 	</package>
+	
+	<package name="rolePrivilege" namespace="/" extends="struts-default">
+		<action name="rolePrivilege_*" method="{1}" class="roleAction">
+			<result name="listAction">/WEB-INF/jsp/gyl/privilege/role_privilege.jsp</result>
+		</action>
+	</package>
 </struts>	
 

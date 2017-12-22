@@ -13,6 +13,7 @@ public class Role implements Serializable {
 	private String name;
 	private Boolean isParent;
 	private Set<User> users = new HashSet<User>();
+	private Set<Privilege> privileges = new HashSet<Privilege>();
 
 	public Integer getRid() {
 		return rid;
@@ -52,6 +53,14 @@ public class Role implements Serializable {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public Set<Privilege> getPrivileges() {
+		return privileges;
+	}
+
+	public void setPrivileges(Set<Privilege> privileges) {
+		this.privileges = privileges;
 	}
 
 }

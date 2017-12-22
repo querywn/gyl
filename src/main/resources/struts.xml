@@ -15,6 +15,7 @@
 	
 	<!-- 权限管理 -->
 	<include file="com/neo/gyl/struts/privilege/struts-role.xml"></include>
+	<include file="com/neo/gyl/struts/privilege/struts-privilege.xml"></include>
 	
 	<!-- 跳转 -->
 	<include file="com/neo/gyl/struts/basedata/struts-forward.xml"></include>
