@@ -65,7 +65,7 @@ var roletree = {
 	//更新角色
 	updateRole:function(){
 		var newRoleName = window.prompt("修改角色名",roletree.data.treeNode.name);
-		if(roletree.data.zTreePlugin.getNodeByParam("name",roleName)){
+		if(roletree.data.zTreePlugin.getNodeByParam("name",newRoleName)){
 			alert("角色名已存在");	
 		} else {
 			var params = {
@@ -73,7 +73,9 @@ var roletree = {
 				name:newRoleName
 			};
 			$.post("roleAction_update.action",params,function(data){
-				roletree.data.zTreePlugin.refresh();
+				roletree.data.treeNode.name = newRoleName;
+				roletree.data.zTreePlugin.updateNode(roletree.data.treeNode,true);
+				//roletree.data.zTreePlugin.refresh();
 			});
 		}
 	},
@@ -93,7 +95,7 @@ var roletree = {
 			
 			$("#updateRole").unbind("click");
 			$("#updateRole").bind("click",function(){
-				alert("update");
+				roletree.updateRole();
 			});
 		}
 	}
