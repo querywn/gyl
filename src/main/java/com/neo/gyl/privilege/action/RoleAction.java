@@ -30,7 +30,7 @@ public class RoleAction extends BaseAction<Role>{
 	public String showRoleTree() throws Exception {
 		//Collection<Role> roles = this.roleService.getAllEntries();
 		Collection<Role> roles = this.roleService.getRolesWithChecked(uid);
-		ActionContext.getContext().getValueStack().push(roles);
+		ActionContext.getContext().getValueStack().push(new HashSet<Role>(roles)); //去重
 		return SUCCESS;
 	}
 	

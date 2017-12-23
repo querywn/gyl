@@ -29,7 +29,7 @@ public class PrivilegeAction extends BaseAction<Privilege> {
 	public String showPrivilegeTree() throws Exception {
 		//Collection<Privilege> privileges = this.privilegeService.getAllEntries();
 		Collection<Privilege> privileges = this.privilegeService.getPrivilegesWithChecked(rid);
-		ActionContext.getContext().getValueStack().push(privileges);
+		ActionContext.getContext().getValueStack().push(new HashSet<Privilege>(privileges));  //去重
 		return SUCCESS;
 	}
 
