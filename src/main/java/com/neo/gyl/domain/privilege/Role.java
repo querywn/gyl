@@ -15,6 +15,8 @@ public class Role implements Serializable {
 	private Set<User> users = new HashSet<User>();
 	private Set<Privilege> privileges = new HashSet<Privilege>();
 
+	private Boolean checked;
+
 	public Integer getRid() {
 		return rid;
 	}
@@ -61,6 +63,39 @@ public class Role implements Serializable {
 
 	public void setPrivileges(Set<Privilege> privileges) {
 		this.privileges = privileges;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Role other = (Role) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 
 }

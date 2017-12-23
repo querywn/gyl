@@ -10,6 +10,7 @@
         <property name="pid"/>
         <property name="name" length="20"/>
         <property name="isParent"/>
+        <property name="checked"/>
         
    		<set name="users" table="user_role">
    			<key column="rid"></key>

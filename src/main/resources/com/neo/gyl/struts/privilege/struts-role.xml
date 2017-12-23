@@ -14,5 +14,11 @@
 			<result name="listAction">/WEB-INF/jsp/gyl/privilege/role_privilege.jsp</result>
 		</action>
 	</package>
+	
+	<package name="userRole" namespace="/" extends="struts-default">
+		<action name="userRole_*" method="{1}" class="roleAction">
+			<result name="listAction">/WEB-INF/jsp/gyl/privilege/user_role.jsp</result>
+		</action>
+	</package>
 </struts>	
 

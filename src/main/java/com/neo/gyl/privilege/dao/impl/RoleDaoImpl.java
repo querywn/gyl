@@ -1,6 +1,7 @@
 package com.neo.gyl.privilege.dao.impl;
 
 import java.sql.SQLException;
+import java.util.Collection;
 
 import javax.annotation.Resource;
 
@@ -29,6 +30,10 @@ public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao{
 						.uniqueResult();
 			}
 		});
+	}
+
+	public Collection<Role> getRolesByUid(Integer uid) {
+		return this.hibernateTemplate.find("from Role r inner join fetch r.users u where u.uid=?",uid);
 	}
 
 }
