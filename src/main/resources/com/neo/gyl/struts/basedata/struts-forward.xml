@@ -6,6 +6,11 @@
 	<package name="forward" namespace="/" extends="struts-default">
 		<action name="forwardAction" class="com.neo.gyl.basedata.action.ForwardAction">
 			<result name="role">/WEB-INF/jsp/gyl/privilege/role.jsp</result>
+			<!-- frame框架页面跳转 -->
+			<result name="top">/WEB-INF/jsp/gyl/frame/top.jsp</result>
+			<result name="center">/WEB-INF/jsp/gyl/frame/center.jsp</result>
+			<result name="left">/WEB-INF/jsp/gyl/frame/left.jsp</result>
+			<result name="right">/WEB-INF/jsp/gyl/frame/right.jsp</result>
 		</action>
 	</package>
 </struts>	

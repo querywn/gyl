@@ -7,4 +7,5 @@ import com.neo.gyl.domain.privilege.Privilege;
 
 public interface PrivilegeService extends BaseService<Privilege>{
 	public Collection<Privilege> getPrivilegesWithChecked(Integer rid);
+	public Collection<Privilege> getMenuitemsByUid(Integer uid);
 }

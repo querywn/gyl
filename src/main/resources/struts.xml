@@ -19,4 +19,7 @@
 	
 	<!-- 跳转 -->
 	<include file="com/neo/gyl/struts/basedata/struts-forward.xml"></include>
+	
+	<!-- 登录 -->
+	<include file="com/neo/gyl/struts/basedata/struts-login.xml"></include>
 </struts>	

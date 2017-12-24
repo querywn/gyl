@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: gyl
 Target Host: localhost
 Target Database: gyl
-Date: 2017/12/23 18:17:29
+Date: 2017/12/24 13:37:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -397,7 +397,7 @@ INSERT INTO `role_privilege` VALUES ('34', '5');
 INSERT INTO `role_privilege` VALUES ('35', '5');
 INSERT INTO `role_privilege` VALUES ('36', '5');
 INSERT INTO `role_privilege` VALUES ('37', '5');
-INSERT INTO `user` VALUES ('1', 'aaa', '123', '男', 'aaa@sina.com', '13035688207', '1');
+INSERT INTO `user` VALUES ('1', 'admin', 'admin', '男', 'admin@sina.com', '13035688207', '1');
 INSERT INTO `user` VALUES ('2', 'bbb', '123', '女', 'bbb@sina.com', '13035688207', '2');
 INSERT INTO `user_role` VALUES ('1', '1');
 INSERT INTO `user_role` VALUES ('1', '5');

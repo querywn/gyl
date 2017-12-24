@@ -34,5 +34,9 @@ public class PrivilegeServiceImpl extends BaseServiceImpl<Privilege> implements 
 		}
 		return privileges;
 	}
+
+	public Collection<Privilege> getMenuitemsByUid(Integer uid) {
+		return this.privilegeDao.getMenuitemsByUid(uid);
+	}
 	
 }

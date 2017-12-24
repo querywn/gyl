@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.neo.gyl.base.BaseAction;
+import com.neo.gyl.domain.basedata.User;
 import com.neo.gyl.domain.privilege.Privilege;
 import com.neo.gyl.domain.privilege.Role;
 import com.neo.gyl.privilege.service.PrivilegeService;
@@ -61,6 +62,14 @@ public class PrivilegeAction extends BaseAction<Privilege> {
 			role.setPrivileges(new HashSet<Privilege>(privileges));
 		}
 		this.roleService.updateEntry(role);
+		return SUCCESS;
+	}
+	
+	//菜单树
+	public String showMenuitemTreeByUid() throws Exception {
+		User user = (User) this.getSession().getAttribute("user");
+		Collection<Privilege> privileges = this.privilegeService.getMenuitemsByUid(user.getUid());
+		ActionContext.getContext().getValueStack().push(privileges);
 		return SUCCESS;
 	}
 }
