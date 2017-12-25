@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.neo.gyl.base.BaseAction;
 import com.neo.gyl.basedata.service.DepartmentService;
 import com.neo.gyl.domain.basedata.Department;
+import com.neo.gyl.privilege.annotation.Permission;
 import com.neo.gyl.query.DepartmentQuery;
 import com.neo.gyl.query.PageResult;
 import com.opensymphony.xwork2.ActionContext;
@@ -26,6 +27,7 @@ public class DepartmentAction extends BaseAction<Department>{
 	/**
 	 * 分页显示部门
 	 */
+	@Permission(name="部门查询")
 	public String showPageResult() throws Exception {
 		if(this.getCurrentPage() == null){
 			this.setCurrentPage(1);

@@ -9,6 +9,9 @@
 	<!--使struts2标签以简单格式显示 -->
 	<constant name="struts.ui.theme" value="simple" />
 	
+	<!-- 按钮功能权限管理 -->
+	<include file="com/neo/gyl/struts/privilege/struts-interceptor.xml"></include>
+	
 	<!-- 基础数据 -->
 	<include file="com/neo/gyl/struts/basedata/struts-department.xml"></include>
 	<include file="com/neo/gyl/struts/basedata/struts-user.xml"></include>
@@ -22,4 +25,6 @@
 	
 	<!-- 登录 -->
 	<include file="com/neo/gyl/struts/basedata/struts-login.xml"></include>
+	
+	
 </struts>	

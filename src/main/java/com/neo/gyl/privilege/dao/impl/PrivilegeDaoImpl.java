@@ -33,4 +33,14 @@ public class PrivilegeDaoImpl extends BaseDaoImpl<Privilege> implements Privileg
 		}
 	}
 
+	public Collection<Privilege> getFunctionsByUid(Integer uid) {
+		if(uid == 1){
+			String hql = "from Privilege where type='2'";
+			return new HashSet<Privilege>(this.hibernateTemplate.find(hql));
+		} else {
+			String hql = "from Privilege p inner join fetch p.roles r inner join fetch r.users u where u.uid=? and p.type='2'";
+			return new HashSet<Privilege>(this.hibernateTemplate.find(hql, uid));
+		}
+	}
+
 }

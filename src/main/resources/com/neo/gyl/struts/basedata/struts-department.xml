@@ -3,7 +3,7 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
 	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-	<package name="department" namespace="/" extends="struts-default">
+	<package name="department" namespace="/" extends="permission-default">
 		<action name="departmentAction_*" method="{1}" class="departmentAction">
 			<result name="listAction">/WEB-INF/jsp/gyl/basedata/departnment/list.jsp</result>
 			<result name="action2action" type="redirectAction">departmentAction_showPageResult.action</result>
