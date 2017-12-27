@@ -29,11 +29,22 @@ public class PageDataHibernateCallback<T> implements HibernateCallback<List<T>> 
 		stringBuilder.append(" where 1=1 ");
 		Map<String, Object> conditionMap = baseQuery.buildConditionMap();
 		for (Map.Entry<String, Object> entry : conditionMap.entrySet()) {
-			stringBuilder.append(" and " + entry.getKey() +"=:" + entry.getKey());
+			//业务->销售管理->页面中通过主表的id查询子表时，构建HQL时xsyddzhub.xsyddzhubid=:xsyddzhubid (参考XsyddzhibQuery)
+			if(entry.getKey().contains(".")){
+				stringBuilder.append(" and " + entry.getKey() +"=:" + entry.getKey().split("\\.")[1]);
+			} else {
+				stringBuilder.append(" and " + entry.getKey() +"=:" + entry.getKey());
+			}
+			
 		}
 		Query query = session.createQuery(stringBuilder.toString());
 		for (Map.Entry<String, Object> entry : conditionMap.entrySet()) {
-			query.setParameter(entry.getKey(), entry.getValue());
+			//业务->销售管理->页面中通过主表的id查询子表时，构建HQL时xsyddzhub.xsyddzhubid=:xsyddzhubid (参考XsyddzhibQuery)
+			if(entry.getKey().contains(".")){
+				query.setParameter(entry.getKey().split("\\.")[1], entry.getValue());
+			} else {
+				query.setParameter(entry.getKey(), entry.getValue());
+			}
 		}
 		
 		query.setFirstResult((baseQuery.getCurrentPage() - 1) * baseQuery.getPageSize());

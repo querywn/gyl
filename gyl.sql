@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: gyl
 Target Host: localhost
 Target Database: gyl
-Date: 2017/12/25 16:51:58
+Date: 2017/12/27 14:35:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -93,6 +93,54 @@ CREATE TABLE `user_role` (
   CONSTRAINT `FK143BF46A874A9773` FOREIGN KEY (`rid`) REFERENCES `role` (`rid`),
   CONSTRAINT `FK143BF46A9575393B` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Table structure for xsyddzhib
+-- ----------------------------
+DROP TABLE IF EXISTS `xsyddzhib`;
+CREATE TABLE `xsyddzhib` (
+  `xsyddzhibid` bigint(20) NOT NULL auto_increment,
+  `spbm` varchar(255) default NULL,
+  `spmc` varchar(255) default NULL,
+  `dpkl` float default NULL,
+  `hh` bigint(20) default NULL,
+  `hsdj` float default NULL,
+  `hsje` float default NULL,
+  `jldw` varchar(255) default NULL,
+  `se` float default NULL,
+  `shdw` varchar(255) default NULL,
+  `shulv` float default NULL,
+  `sl` bigint(20) default NULL,
+  `wsdj` float default NULL,
+  `wsje` float default NULL,
+  `xh` varchar(255) default NULL,
+  `zke` float default NULL,
+  `xsyddzhubid` bigint(20) default NULL,
+  PRIMARY KEY  (`xsyddzhibid`),
+  KEY `FK52DE2785141BEA3A` (`xsyddzhubid`),
+  CONSTRAINT `FK52DE2785141BEA3A` FOREIGN KEY (`xsyddzhubid`) REFERENCES `xsyddzhub` (`xsyddzhubid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for xsyddzhub
+-- ----------------------------
+DROP TABLE IF EXISTS `xsyddzhub`;
+CREATE TABLE `xsyddzhub` (
+  `xsyddzhubid` bigint(20) NOT NULL auto_increment,
+  `ddh` varchar(100) default NULL,
+  `dhrq` date default NULL,
+  `khmc` varchar(100) default NULL,
+  `spr` varchar(20) default NULL,
+  `sprq` datetime default NULL,
+  `state` varchar(255) default NULL,
+  `sxbm` varchar(20) default NULL,
+  `xgr` varchar(20) default NULL,
+  `xgrq` datetime default NULL,
+  `ywy` varchar(20) default NULL,
+  `zdr` varchar(255) default NULL,
+  `zdrq` datetime default NULL,
+  PRIMARY KEY  (`xsyddzhubid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records 
@@ -467,3 +515,11 @@ INSERT INTO `user_role` VALUES ('1', '1');
 INSERT INTO `user_role` VALUES ('1', '3');
 INSERT INTO `user_role` VALUES ('2', '1');
 INSERT INTO `user_role` VALUES ('2', '2');
+INSERT INTO `xsyddzhib` VALUES ('1', null, 'aaa', null, null, null, null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `xsyddzhib` VALUES ('2', null, 'bbb', null, null, null, null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `xsyddzhib` VALUES ('3', null, 'ccc', null, null, null, null, null, null, null, null, null, null, null, null, null, '1');
+INSERT INTO `xsyddzhib` VALUES ('4', null, 'ddd', null, null, null, null, null, null, null, null, null, null, null, null, null, '2');
+INSERT INTO `xsyddzhib` VALUES ('5', null, 'eee', null, null, null, null, null, null, null, null, null, null, null, null, null, '2');
+INSERT INTO `xsyddzhub` VALUES ('1', null, null, '111', null, null, null, null, null, null, null, null, null);
+INSERT INTO `xsyddzhub` VALUES ('2', null, null, '222', null, null, null, null, null, null, null, null, null);
+INSERT INTO `xsyddzhub` VALUES ('3', null, null, '333', null, null, null, null, null, null, null, null, null);
