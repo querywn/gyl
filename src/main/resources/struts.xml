@@ -26,5 +26,6 @@
 	<!-- 登录 -->
 	<include file="com/neo/gyl/struts/basedata/struts-login.xml"></include>
 	
-	
+	<!-- 业务  销售管理 -->
+	<include file="com/neo/gyl/struts/business/struts-xsydd.xml"></include>
 </struts>	
