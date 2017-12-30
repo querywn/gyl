@@ -16,6 +16,9 @@
 		//点击主表tr显示子表时使用window.location.href所有需要传递URL
 		$("body").data("url","xsyddAction_showAllXsydd.action?query_zhib.xsyddzhubid=");
 		GylUtils.business.init.initEvent();
+		//设置当前点击的tr的背景色
+		var currentTrId = $("input[name='query_zhib.xsyddzhubid']").attr("value");
+		$("tr[id='"+currentTrId+"']").css("background-color","#eee"); //当前点击的tr
 	});
 	$(function(){
 		$('.tab li').mouseover(function(){

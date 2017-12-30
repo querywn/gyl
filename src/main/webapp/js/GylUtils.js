@@ -150,6 +150,9 @@ var GylUtils = {
 			}
 		},
 		init:{
+			data:{
+				currentTr:''
+			},
 			initEvent:function(){
 				GylUtils.business.zhubTrClick();
 				GylUtils.business.disPage.zhub();
