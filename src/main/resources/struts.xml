@@ -15,6 +15,7 @@
 	<!-- 基础数据 -->
 	<include file="com/neo/gyl/struts/basedata/struts-department.xml"></include>
 	<include file="com/neo/gyl/struts/basedata/struts-user.xml"></include>
+	<include file="com/neo/gyl/struts/basedata/struts-product.xml"></include>
 	
 	<!-- 权限管理 -->
 	<include file="com/neo/gyl/struts/privilege/struts-role.xml"></include>

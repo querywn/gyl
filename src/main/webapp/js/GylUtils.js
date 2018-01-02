@@ -68,6 +68,24 @@ var GylUtils = {
 	 * 业务模块
 	 */
 	business:{
+		//
+		divOpt:{
+			showProductsDiv:function(){
+				$("#seek").show();
+			}
+		},
+		add:{
+			showProductsDivEvent:function(){
+				$(".searRR").unbind("click");
+				$(".searRR").bind("click",function(){
+					GylUtils.business.divOpt.showProductsDiv();
+					$.fn.GirdPanel.createTable({
+						url:'productJSONAction_showProducts.action',
+						fields:$("#seek *[item]")
+					});
+				});
+			}
+		},
 		//根据主表id显示子表
 		showZhibList:function(){
 			var xsyddzhubid = $(this).attr("id");
