@@ -73,7 +73,8 @@ var GylUtils = {
 			var xsyddzhubid = $(this).attr("id");
 			var url = $("body").data("url");
 			$("input[name='query_zhib.xsyddzhubid']").attr("value",xsyddzhubid);//子表分页
-			window.location.href = url + xsyddzhubid;
+			var currentPage = $("#pageNo").val(); //传递主表页码
+			window.location.href = url + xsyddzhubid + "&query_zhub.currentPage=" + currentPage;
 		},
 		//点击主表事件
 		zhubTrClick:function(){
