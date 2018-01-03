@@ -14,7 +14,11 @@
 <script type="text/javascript" src="js/jquery.datepick-zh-CN.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		//显示商品列表
 		GylUtils.business.add.showProductsDivEvent();
+		//确定按钮事件
+		GylUtils.business.add.showProductsDivSureEvent();
+		
 		//使用class属性处理  'yy-mm-dd' 设置格式"yyyy/mm/dd"
 		//$('#dhrq').datepick({dateFormat: 'yy-mm-dd'}); 
 		//$('#sxrq').datepick({dateFormat: 'yy-mm-dd'}); 
@@ -92,7 +96,7 @@
                     <td class="inp" item="spmc">
                     	<div class="inp_search">
                     		<input type="text" class="bdnone" readonly="readonly" name="xsyddzhibs[0].spmc"/>
-                    		<span class="searRR"></span>
+                    		<span class="searRR" style="float: right;"></span>
                     	</div>
                     	<div id="seek">
                     	 	<div class="seek_con_top">

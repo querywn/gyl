@@ -68,21 +68,57 @@ var GylUtils = {
 	 * 业务模块
 	 */
 	business:{
-		//
+		data:{
+			currentTr:''
+		},
 		divOpt:{
 			showProductsDiv:function(){
 				$("#seek").show();
+			},
+			hideProductsDiv:function(){
+				$("#seek").hide();
+			},
+			fillCheckedValueToZhib:function(){
+				var checkedTds = $(":radio:checked").parent().siblings("td");
+				var $tr = GylUtils.business.data.currentTr;
+				$.each(checkedTds,function(){  //迭代行
+					var currCheckedTd = this;
+					var itemName = $(this).attr("item");  //spmc
+					$.each($tr,function(){  //迭代列
+						if(itemName == "spmc"){
+							$(this).children("td[item='"+itemName+"']").children("div").children("input").val($(currCheckedTd).text());
+						} else {
+							$(this).children("td[item='"+itemName+"']").children("input").val($(currCheckedTd).text());
+						}
+					});
+				});
 			}
 		},
 		add:{
 			showProductsDivEvent:function(){
 				$(".searRR").unbind("click");
 				$(".searRR").bind("click",function(){
+					//显示商品列表div
 					GylUtils.business.divOpt.showProductsDiv();
-					$.fn.GirdPanel.createTable({
-						url:'productJSONAction_showProducts.action',
-						fields:$("#seek *[item]")
-					});
+					
+					//加载初始化商品数据
+					if($("#seek table tbody tr").length < 2){
+						$.fn.GirdPanel.createTable({
+							url:'productJSONAction_showProducts.action',
+							fields:$("#seek *[item]")
+						});
+					}
+					
+					//记录当前操作的tr
+					GylUtils.business.data.currentTr = $(this).parent().parent().parent();
+				});
+			},
+			showProductsDivSureEvent:function(){
+				$(".btn").unbind("click");
+				$(".btn").bind("click",function(){
+					GylUtils.business.divOpt.fillCheckedValueToZhib();
+					GylUtils.business.divOpt.hideProductsDiv();
+					return false;
 				});
 			}
 		},
