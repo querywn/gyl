@@ -69,7 +69,8 @@ var GylUtils = {
 	 */
 	business:{
 		data:{
-			currentTr:''
+			currentTr:'',
+			cloneTr:''
 		},
 		divOpt:{
 			showProductsDiv:function(){
@@ -95,10 +96,11 @@ var GylUtils = {
 			}
 		},
 		add:{
+			//点击搜索按钮显示【商品列表div】
 			showProductsDivEvent:function(){
 				$(".searRR").unbind("click");
 				$(".searRR").bind("click",function(){
-					//显示商品列表div
+					//显示【商品列表div】
 					GylUtils.business.divOpt.showProductsDiv();
 					
 					//加载初始化商品数据
@@ -111,15 +113,68 @@ var GylUtils = {
 					
 					//记录当前操作的tr
 					GylUtils.business.data.currentTr = $(this).parent().parent().parent();
+				
 				});
 			},
+			//点击【商品列表div】上的确定按钮回显div
 			showProductsDivSureEvent:function(){
 				$(".btn").unbind("click");
 				$(".btn").bind("click",function(){
 					GylUtils.business.divOpt.fillCheckedValueToZhib();
-					GylUtils.business.divOpt.hideProductsDiv();
+					GylUtils.business.divOpt.hideProductsDiv();  //添加值完毕后隐藏【商品列表div】
+					
+					//克隆当前操作的tr (必须在添加事件响应前)
+					GylUtils.business.data.cloneTr = GylUtils.business.data.currentTr.clone(true);
 					return false;
 				});
+			},
+			//显示右键菜单
+			showRMenu:function(x,y){
+				$("#menu").css({"top":y-50+"px", "left":x-50+"px", "display":"block","background":"rgba(255,255,255, 0)"});
+				$("#menu").css("height","40");
+				$("#menu").css("width","60");
+				$("#menu").show();
+			},
+			//隐藏右键菜单
+			hideRMenu:function(){
+				$("#menu").hover(function(){
+				},function(){
+					$(this).hide();
+				});
+			},
+			//右键菜单事件
+			menuEvent:function(){
+				$("body").delegate("td[item='hh']","contextmenu",function(e){
+					GylUtils.business.add.showRMenu(e.clientX, e.clientY);
+					return false;
+				});
+			},
+			//增加行事件
+			addRowEvent:function(){
+				$("#addRow").unbind("click")
+				$("#addRow").bind("click",function(){
+					GylUtils.business.add.addRow();
+				})
+			},
+			//增加行
+			addRow:function(){
+				//上一行点击选择按钮时克隆tr
+				var $tr = GylUtils.business.data.cloneTr;
+				$("#right_center table tbody").append($tr);
+				//移除前一个tr的seek的div
+				GylUtils.business.data.currentTr.children("td").children("#seek").remove()
+			},
+			initEvent:function(){
+				//【显示商品列表】
+				GylUtils.business.add.showProductsDivEvent();
+				//【显示商品列表】确定按钮事件
+				GylUtils.business.add.showProductsDivSureEvent();
+				//【右键菜单】事件
+				GylUtils.business.add.menuEvent();
+				//左键离开菜单时，隐藏【右键菜单】
+				GylUtils.business.add.hideRMenu();
+				//【增行】事件
+				GylUtils.business.add.addRowEvent();
 			}
 		},
 		//根据主表id显示子表
