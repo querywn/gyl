@@ -100,9 +100,10 @@ var GylUtils = {
 			showProductsDivEvent:function(){
 				$(".searRR").unbind("click");
 				$(".searRR").bind("click",function(){
+					//克隆当前操作的tr (必须在添加事件响应前)
+					GylUtils.business.data.cloneTr = $(this).parent().parent().parent().clone(true);
 					//显示【商品列表div】
 					GylUtils.business.divOpt.showProductsDiv();
-					
 					//加载初始化商品数据
 					if($("#seek table tbody tr").length < 2){
 						$.fn.GirdPanel.createTable({
@@ -110,10 +111,8 @@ var GylUtils = {
 							fields:$("#seek *[item]")
 						});
 					}
-					
 					//记录当前操作的tr
 					GylUtils.business.data.currentTr = $(this).parent().parent().parent();
-				
 				});
 			},
 			//点击【商品列表div】上的确定按钮回显div
@@ -122,9 +121,8 @@ var GylUtils = {
 				$(".btn").bind("click",function(){
 					GylUtils.business.divOpt.fillCheckedValueToZhib();
 					GylUtils.business.divOpt.hideProductsDiv();  //添加值完毕后隐藏【商品列表div】
-					
-					//克隆当前操作的tr (必须在添加事件响应前)
-					GylUtils.business.data.cloneTr = GylUtils.business.data.currentTr.clone(true);
+					//移除当前tr对象seek
+					$("#seek").remove();
 					return false;
 				});
 			},
@@ -160,9 +158,25 @@ var GylUtils = {
 			addRow:function(){
 				//上一行点击选择按钮时克隆tr
 				var $tr = GylUtils.business.data.cloneTr;
+				//设置行号
+				var hh = GylUtils.business.data.currentTr.children("td[item='hh']").children("input").val();
+				$tr.children("td[item='hh']").children("input").val(parseInt(hh) + 1);
+				//修改input的name属性 xsyddzhibs[0].spbm --> xsyddzhibs[1].spbm 前一个指加1
+				var $tds = $tr.children("td");
+				$.each($tds,function(){
+					var $td = $(this);
+					var $currInput = '';
+					if($td.attr("item") == "spmc"){
+						$currInput = $td.children("div").children("input:eq(0)");
+					} else {
+						$currInput = $td.children("input:eq(0)");
+					}
+					var value = $currInput.attr("name").replace(/[^0-9]/ig,"");
+					var finalNameValue = $currInput.attr("name").replace(/[0-9]/ig,parseInt(value)+1);
+					$currInput.attr("name",finalNameValue);
+				});
+				
 				$("#right_center table tbody").append($tr);
-				//移除前一个tr的seek的div
-				GylUtils.business.data.currentTr.children("td").children("#seek").remove()
 			},
 			initEvent:function(){
 				//【显示商品列表】

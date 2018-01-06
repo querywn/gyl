@@ -21,7 +21,11 @@ public class ProductAction extends BaseAction<Product>{
 	
 	
 	public String showProducts() throws Exception {
-		Collection<Product> products = this.productService.getAllEntries();
+		Collection<Product> products = (Collection<Product>) this.getSession().getAttribute("products");
+		if(products==null || products.size()<1){
+			products = this.productService.getAllEntries();
+			this.getSession().setAttribute("products", products);
+		}
 		ActionContext.getContext().getValueStack().push(products);
 		return SUCCESS;
 	}
