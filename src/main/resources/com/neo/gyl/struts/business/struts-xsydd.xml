@@ -7,6 +7,12 @@
 	<package name="xsydd" namespace="/" extends="struts-default">
 		<action name="xsyddAction_*" method="{1}" class="xsyddAction">
 			<result name="listAction">/WEB-INF/jsp/gyl/business/xsgl/xsydd/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/gyl/business/xsgl/xsydd/save.jsp</result>
+			<result type="chain" name="chain">
+				<param name="actionName">xsyddAction</param>  
+				<param name="namespace">/</param>
+				<param name="method">showAllXsydd</param>
+			</result>
 		</action>
 	</package>
 		

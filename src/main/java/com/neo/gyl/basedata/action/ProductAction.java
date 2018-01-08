@@ -29,8 +29,4 @@ public class ProductAction extends BaseAction<Product>{
 		ActionContext.getContext().getValueStack().push(products);
 		return SUCCESS;
 	}
-	
-	public String saveUI() throws Exception {
-		return SAVEUI;
-	}
 }

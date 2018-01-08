@@ -16,6 +16,7 @@ import com.neo.gyl.base.hibernatecallback.PageDataHibernateCallback;
 import com.neo.gyl.base.hibernatecallback.ScalerHibernateCallback;
 import com.neo.gyl.query.BaseQuery;
 import com.neo.gyl.query.PageResult;
+import com.neo.gyl.utils.GylUtils;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -77,5 +78,16 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		pageResult.setRows(list);
 		return pageResult;
 	}
-
+	
+	//获取最大的订单号  2018010800001
+	public String getMaxDDH() {
+		String currentDateString = GylUtils.getCurrentDateString();
+		List list = this.hibernateTemplate.find("select max(ddh) from " + this.clazz.getSimpleName() + " where ddh like '%"+currentDateString+"%'");
+		if(list==null || list.size()<1 || list.get(0)==null){
+			return currentDateString + "00001";
+		} else {
+			String temp = (String) list.get(0);
+			return String.valueOf(Long.parseLong(temp) + 1);
+		}
+	}
 }

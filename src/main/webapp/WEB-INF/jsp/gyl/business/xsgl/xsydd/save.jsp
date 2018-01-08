@@ -43,7 +43,7 @@
 </script>
 </head>
 <body>
-<s:form action="xsyddAction_add.action">
+<s:form action="xsyddAction_save.action">
 <table id="wrap">
 	<tr>
     	<td id="rig_top" >

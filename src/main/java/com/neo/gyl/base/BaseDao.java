@@ -18,4 +18,7 @@ public interface BaseDao<T> {
 	
 	public int getCount(BaseQuery baseQuery);
 	public PageResult<T> getPageResult(BaseQuery baseQuery);
+	
+	//获取最大的订单号  2018010800001
+	public String getMaxDDH();
 }

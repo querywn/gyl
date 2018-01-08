@@ -178,6 +178,38 @@ var GylUtils = {
 				
 				$("#right_center table tbody").append($tr);
 			},
+			//wsdj无税单价的blur事件
+			wsdjBlurEvent:function(){
+				$("td[item='wsdj']").delegate("input","blur",function(){
+					GylUtils. business.add.accountMoney.call(this);
+				});
+			},
+			//计算金额
+			accountMoney:function(){
+				//数量（手动添加）
+				var sl = $(this).parent().siblings("td[item='sl']").children("input:eq(0)").val();
+				//税率 (固定)
+				var shulv = $(this).parent().siblings("td[item='shulv']").children("input:eq(0)").val();
+				//单品扣率 （手动添加）
+				var dpkl = $(this).parent().siblings("td[item='dpkl']").children("input:eq(0)").val();
+				//无税单价 （手动添加）
+				var wsdj = $(this).val();
+				//含税单价  = 无税单价 * （1  + 税率）
+				var hsdj = parseFloat(wsdj) * (1 + parseFloat(shulv));
+				$(this).parent().siblings("td[item='hsdj']").children("input:eq(0)").val(hsdj);
+				//无税金额  = 数量 * 无税单价
+				var wsje = parseFloat(sl) * parseFloat(wsdj);
+				$(this).parent().siblings("td[item='wsje']").children("input:eq(0)").val(wsje);
+				//含税金额  = 数量 * 含税单价
+				var hsje = parseFloat(sl) * hsdj;
+				$(this).parent().siblings("td[item='hsje']").children("input:eq(0)").val(hsje);
+				//税额 = 含税金额 - 无税金额
+				var se = hsje - wsje;
+				$(this).parent().siblings("td[item='se']").children("input:eq(0)").val(se);
+				//折扣额   = 单品扣率  * 含税金额
+				var zke = parseFloat(dpkl) * hsje;
+				$(this).parent().siblings("td[item='zke']").children("input:eq(0)").val(zke);
+			},
 			initEvent:function(){
 				//【显示商品列表】
 				GylUtils.business.add.showProductsDivEvent();
@@ -189,6 +221,8 @@ var GylUtils = {
 				GylUtils.business.add.hideRMenu();
 				//【增行】事件
 				GylUtils.business.add.addRowEvent();
+				//无税单价的blur事件
+				GylUtils.business.add.wsdjBlurEvent();
 			}
 		},
 		//根据主表id显示子表
