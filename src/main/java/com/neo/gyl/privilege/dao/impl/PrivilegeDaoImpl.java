@@ -3,6 +3,7 @@ package com.neo.gyl.privilege.dao.impl;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -29,7 +30,7 @@ public class PrivilegeDaoImpl extends BaseDaoImpl<Privilege> implements Privileg
 			return new HashSet<Privilege>(this.hibernateTemplate.find(hql));
 		} else {
 			String hql = "from Privilege p inner join fetch p.roles r inner join fetch r.users u where u.uid=? and p.type='1'";
-			return new HashSet<Privilege>(this.hibernateTemplate.find(hql, uid));
+			return new HashSet<Privilege>(this.hibernateTemplate.find(hql));
 		}
 	}
 

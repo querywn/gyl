@@ -861,7 +861,7 @@ public class PrivilegeTest {
 		PrivilegeFifth_saleorder_update.setIcon("images/003.gif");
 		PrivilegeFifth_saleorder_update.setIsParent(false);
 		//PrivilegeSecond_basedata.setMid(2L);
-		PrivilegeFifth_saleorder_update.setName("增加");
+		PrivilegeFifth_saleorder_update.setName("修改");
 		PrivilegeFifth_saleorder_update.setPid(PrivilegeForth_saleorder.getId());
 		PrivilegeFifth_saleorder_update.setType("1");
 		session.save(PrivilegeFifth_saleorder_update);

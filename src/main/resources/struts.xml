@@ -29,4 +29,5 @@
 	
 	<!-- 业务  销售管理 -->
 	<include file="com/neo/gyl/struts/business/struts-xsydd.xml"></include>
+	<include file="com/neo/gyl/struts/business/struts-xsdd.xml"></include>
 </struts>	

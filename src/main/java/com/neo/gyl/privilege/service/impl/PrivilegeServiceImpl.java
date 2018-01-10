@@ -28,8 +28,14 @@ public class PrivilegeServiceImpl extends BaseServiceImpl<Privilege> implements 
 		Collection<Privilege> privileges = this.privilegeDao.getAllEntries();
 		Collection<Privilege> checkedPrivileges = this.privilegeDao.getPrivilegesByRid(rid);
 		for (Privilege privilege : privileges) {
-			if(checkedPrivileges.contains(privilege)){
+			//需要实现name的hashcode和equals方法
+			/*if(checkedPrivileges.contains(privilege)){
 				privilege.setChecked(true);
+			}*/
+			for (Privilege checkedPrivilege : checkedPrivileges) {
+				if(privilege.getId().longValue() == checkedPrivilege.getId().longValue()){
+					privilege.setChecked(true);
+				}
 			}
 		}
 		return privileges;

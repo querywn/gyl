@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	
+	<package name="xsdd" namespace="/" extends="struts-default">
+		<action name="xsddAction_*" method="{1}" class="xsddAction">
+			<result name="listAction">/WEB-INF/jsp/gyl/business/xsgl/xsdd/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/gyl/business/xsgl/xsdd/save.jsp</result>
+			<result type="chain" name="chain">
+				<param name="actionName">xsddAction</param>  
+				<param name="namespace">/</param>
+				<param name="method">showAllXsdd</param>
+			</result>
+		</action>
+	</package>
+		
+</struts>	
