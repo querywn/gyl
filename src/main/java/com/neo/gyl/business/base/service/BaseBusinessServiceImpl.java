@@ -35,4 +35,12 @@ public abstract class BaseBusinessServiceImpl<T extends Serializable, E extends 
 	public void saveEntry_zhub(T t){
 		this.getBaseDao_zhub().saveEntry(t);
 	}
+	
+	//查询主表
+	public T getEntryById_zhub(Serializable id) {
+		return this.getBaseDao_zhub().getEntryById(id);
+	}
+	
+	
+	
 }

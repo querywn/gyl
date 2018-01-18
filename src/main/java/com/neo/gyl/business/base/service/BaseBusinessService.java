@@ -12,4 +12,6 @@ public interface BaseBusinessService<T extends Serializable,E extends Serializab
 	public String getMaxDDH();
 	//保存主表
 	public void saveEntry_zhub(T t);
+	//根据id获取主表
+	public T getEntryById_zhub(Serializable id);
 }

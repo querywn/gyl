@@ -2,6 +2,7 @@ package com.neo.gyl.domain.business.xsgl;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,7 +23,7 @@ public class Xsyddzhub implements Serializable {
 	private Date xgrq;// 修改日期
 	private String state;// 状态
 
-	private Set<Xsyddzhib> xsyddzhibs;
+	private Set<Xsyddzhib> xsyddzhibs = new HashSet<Xsyddzhib>();
 
 	public Integer getXsyddzhubid() {
 		return xsyddzhubid;
