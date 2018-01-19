@@ -200,6 +200,85 @@ UNLOCK TABLES;
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 
 --
+-- Table structure for table `xsckdzhib`
+--
+
+DROP TABLE IF EXISTS `xsckdzhib`;
+CREATE TABLE `xsckdzhib` (
+  `xsckdzhibid` int(11) NOT NULL auto_increment,
+  `spbm` varchar(50) default NULL,
+  `spmc` varchar(50) default NULL,
+  `ckrq` datetime default NULL,
+  `dj` float default NULL,
+  `dw` varchar(20) default NULL,
+  `hh` int(11) default NULL,
+  `isckgb` bit(1) default NULL,
+  `je` float default NULL,
+  `ljcksl` int(11) default NULL,
+  `scrq` datetime default NULL,
+  `sfsl` int(11) default NULL,
+  `sxrq` datetime default NULL,
+  `xh` varchar(255) default NULL,
+  `yfsl` int(11) default NULL,
+  `ytdjh` varchar(100) default NULL,
+  `ythh` int(11) default NULL,
+  `lydjh` varchar(100) default NULL,
+  `lyhh` int(11) default NULL,
+  `zp` varchar(50) default NULL,
+  `xsckdzhubid` int(11) default NULL,
+  PRIMARY KEY  (`xsckdzhibid`),
+  KEY `FKD306FC48AD8B6F00` (`xsckdzhubid`),
+  CONSTRAINT `FKD306FC48AD8B6F00` FOREIGN KEY (`xsckdzhubid`) REFERENCES `xsckdzhub` (`xsckdzhubid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `xsckdzhib`
+--
+
+
+/*!40000 ALTER TABLE `xsckdzhib` DISABLE KEYS */;
+LOCK TABLES `xsckdzhib` WRITE;
+INSERT INTO `xsckdzhib` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,'\0',NULL,10,NULL,10,NULL,NULL,NULL,'2018011000001',1,NULL,NULL,NULL,NULL),(2,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,20,NULL,10,NULL,NULL,NULL,'2018011000001',1,NULL,NULL,NULL,NULL);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `xsckdzhib` ENABLE KEYS */;
+
+--
+-- Table structure for table `xsckdzhub`
+--
+
+DROP TABLE IF EXISTS `xsckdzhub`;
+CREATE TABLE `xsckdzhub` (
+  `xsckdzhubid` int(11) NOT NULL auto_increment,
+  `bm` varchar(50) default NULL,
+  `ck` varchar(20) default NULL,
+  `ddh` varchar(100) default NULL,
+  `djrq` datetime default NULL,
+  `isth` bit(1) default NULL,
+  `kgy` varchar(20) default NULL,
+  `kh` varchar(50) default NULL,
+  `qzr` varchar(20) default NULL,
+  `shr` varchar(20) default NULL,
+  `shrq` datetime default NULL,
+  `status` varchar(20) default NULL,
+  `xgrq` datetime default NULL,
+  `xgr` varchar(255) default NULL,
+  `zdr` varchar(20) default NULL,
+  `zdrq` datetime default NULL,
+  PRIMARY KEY  (`xsckdzhubid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `xsckdzhub`
+--
+
+
+/*!40000 ALTER TABLE `xsckdzhub` DISABLE KEYS */;
+LOCK TABLES `xsckdzhub` WRITE;
+INSERT INTO `xsckdzhub` VALUES (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE `xsckdzhub` ENABLE KEYS */;
+
+--
 -- Table structure for table `xsddzhib`
 --
 
@@ -249,7 +328,7 @@ CREATE TABLE `xsddzhib` (
 
 /*!40000 ALTER TABLE `xsddzhib` DISABLE KEYS */;
 LOCK TABLES `xsddzhib` WRITE;
-INSERT INTO `xsddzhib` VALUES (1,'10086',NULL,0.1,NULL,'',1,2400,48000,'2','\0','','\0','\0',NULL,NULL,0,20,0,0,8000,'',0.2,20,2000,40000,'MD531CH/A',NULL,NULL,4800,'1',1);
+INSERT INTO `xsddzhib` VALUES (1,'10086',NULL,0.1,NULL,'',1,2400,48000,'2','','','\0','\0',NULL,NULL,20,20,0,0,8000,'',0.2,20,2000,40000,'MD531CH/A',NULL,NULL,4800,'1',1);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `xsddzhib` ENABLE KEYS */;
 
