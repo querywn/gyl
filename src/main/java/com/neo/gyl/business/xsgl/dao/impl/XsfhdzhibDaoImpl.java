@@ -18,7 +18,7 @@ public class XsfhdzhibDaoImpl extends BaseDaoImpl<Xsfhdzhib> implements Xsfhdzhi
 	private HibernateTemplate hibernateTemplate;
 	
 	public List<Xsfhdzhib> getXsfhdzhibsByCondition(String ytdjh, Integer ythh) {
-		return this.hibernateTemplate.find("from Xsfhdzhib where xsfhdzhub.ddh=? and ythh=?", ytdjh, ythh);
+		return this.hibernateTemplate.find("from Xsfhdzhib where ytdjh=? and ythh=?", ytdjh, ythh);
 	}
 
 }

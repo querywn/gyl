@@ -41,8 +41,9 @@ public class XsfhdTest {
 		System.out.println("是否发货关闭:"+xsddzhib.getIsfhgb());
 	}
 	
+	//分两次发货，每次实发数量为10
 	@Test
-	public void testSaveOnce(){
+	public void testSaveTwice(){
 		/*
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/neo/gyl/spring/applicationContext.xml");
 		XsfhdzhubDao xsfhdzhubDao = (XsfhdzhubDao) context.getBean("xsfhdzhubDao");
@@ -61,31 +62,6 @@ public class XsfhdTest {
 		xsfhdzhibs.add(xsfhdzhib);
 		
 		xsfhdService.saveXsfhd(xsfhdzhub, xsfhdzhibs);
-		
-		System.out.println("销售发货单子表是否关闭："+xsfhdzhib.getIsfhgb());
-		XsddzhibDao xsddzhibDao = (XsddzhibDao)context.getBean("xsddzhibDao");
-		Xsddzhib xsddzhib = xsddzhibDao.getXsddzhibByCondition("2018011000001", 1);
-		System.out.println("销售订单子表累计发货数量:"+xsddzhib.getLjfhsl());
-		System.out.println("是否发货关闭:"+xsddzhib.getIsfhgb());
-	}
-	@Test
-	public void testSaveTwice(){
-		/*
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/neo/gyl/spring/applicationContext.xml");
-		XsfhdzhubDao xsfhdzhubDao = (XsfhdzhubDao) context.getBean("xsfhdzhubDao");
-		xsfhdzhubDao.saveEntry(xsfhdzhub);
-		*/
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/neo/gyl/spring/applicationContext.xml");
-		XsfhdService xsfhdService = (XsfhdService)context.getBean("xsfhdService");
-		Xsfhdzhub xsfhdzhub = xsfhdService.getEntryById_zhub(1);
-		List<Xsfhdzhib> xsfhdzhibs = new ArrayList<Xsfhdzhib>();
-		
-		Xsfhdzhib xsfhdzhib = new Xsfhdzhib();
-		xsfhdzhib.setSfsl(10);//设置实发数量
-		xsfhdzhib.setYtdjh("2018011000001");//源头单据号
-		xsfhdzhib.setYthh(1);//源头行号
-		xsfhdzhibs.add(xsfhdzhib);
 		
 		System.out.println("销售发货单子表是否关闭："+xsfhdzhib.getIsfhgb());
 		XsddzhibDao xsddzhibDao = (XsddzhibDao)context.getBean("xsddzhibDao");
