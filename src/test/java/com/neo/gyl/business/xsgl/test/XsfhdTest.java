@@ -28,7 +28,7 @@ public class XsfhdTest {
 		Xsfhdzhub xsfhdzhub = new Xsfhdzhub();
 		List<Xsfhdzhib> xsfhdzhibs = new ArrayList<Xsfhdzhib>();
 		Xsfhdzhib xsfhdzhib = new Xsfhdzhib();
-		xsfhdzhib.setSfsl(10);//设置实发数量
+		xsfhdzhib.setSfsl(20);//设置实发数量
 		xsfhdzhib.setYtdjh("2018011000001");//源头单据号
 		xsfhdzhib.setYthh(1);//源头行号
 		xsfhdzhibs.add(xsfhdzhib);
