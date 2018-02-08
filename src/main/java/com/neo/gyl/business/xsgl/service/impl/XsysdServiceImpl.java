@@ -15,6 +15,7 @@ import com.neo.gyl.business.xsgl.dao.XsysdzhibDao;
 import com.neo.gyl.business.xsgl.dao.XsysdzhubDao;
 import com.neo.gyl.business.xsgl.service.XsysdService;
 import com.neo.gyl.domain.business.xsgl.Xsddzhib;
+import com.neo.gyl.domain.business.xsgl.Xsddzhub;
 import com.neo.gyl.domain.business.xsgl.Xsysdzhib;
 import com.neo.gyl.domain.business.xsgl.Xsysdzhub;
 import com.neo.gyl.utils.GylContstantKey;
@@ -60,6 +61,20 @@ public class XsysdServiceImpl extends BaseBusinessServiceImpl<Xsysdzhub, Xsysdzh
 				xsddzhib.setIsskjs(true); //【回写】【销售订单子表】设置收款结束
 				xsddzhib.setHstatus(GylContstantKey.XSYSD_H_CLOSE);//【回写】【销售订单子表】设置行关闭
 				
+				List<Xsddzhib> xsddzhibs = this.xsddzhubDao.getXsddzhibsByDdh(ytdjh);
+				boolean flag = true;
+				for (Xsddzhib xsddzhib2 : xsddzhibs) {
+					if(!GylContstantKey.XSYSD_H_CLOSE.equals(xsddzhib2.getHstatus())){
+						flag = false;
+						break;
+					}
+				}
+				//销售订单子表中的所有的行全部关闭了
+				if(flag){
+					Xsddzhub xsddzhub = this.xsddzhubDao.getXsddzhubByDdh(ytdjh);
+					//根据源头单据号设置销售订单的主表状态为关闭
+					xsddzhub.setState(GylContstantKey.XSDDZHUB_H_STATE_CLOSE);
+				}
 			}
 		}
 		xsysdzhub.setXsysdzhibs(new HashSet<Xsysdzhib>(xsysdzhibs));

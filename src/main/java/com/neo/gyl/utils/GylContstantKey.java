@@ -10,4 +10,6 @@ public class GylContstantKey {
 	
 	
 	public static final String XSYSD_H_CLOSE = "1";//销售应收单行状态 【关闭】
+	
+	public static final String XSDDZHUB_H_STATE_CLOSE = "1";//
 }

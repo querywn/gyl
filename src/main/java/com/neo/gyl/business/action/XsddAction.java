@@ -32,7 +32,7 @@ public class XsddAction {
 	private XsddService xsddService;
 
 	// 显示所有销售预订单
-	public String showAllXsydd() throws Exception {
+	public String showAllXsdd() throws Exception {
 		PageResult<Xsddzhub> pageResult_zhub = this.xsddService
 				.getPageResult_zhub(query_zhub);
 		PageResult<Xsddzhib> pageResult_zhib = this.xsddService
